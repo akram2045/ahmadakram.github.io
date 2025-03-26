@@ -24,3 +24,17 @@ document.addEventListener("click", function (event) {
     toggleButton.click(); // Tutup navbar
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  let link = document.querySelectorAll(".nav-link");
+
+  link.forEach(function (link) {
+    link.addEventListener("mouseover", function () {
+      link.style.backgroundColor = "#cfe4f5";
+      link.style.color = "#324fe4";
+    });
+    link.addEventListener("mouseout", function () {
+      link.style.backgroundColor = "#324fe4";
+      link.style.color = "#ffffff8c";
+    });
+  });
+});
