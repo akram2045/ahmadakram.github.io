@@ -31,10 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("mouseover", function () {
       link.style.backgroundColor = "#cfe4f5";
       link.style.color = "#324fe4";
+      link.style.fontSize = "17px";
     });
     link.addEventListener("mouseout", function () {
       link.style.backgroundColor = "#324fe4";
       link.style.color = "#ffffff8c";
+      link.style.fontSize = "16px";
     });
   });
 });
