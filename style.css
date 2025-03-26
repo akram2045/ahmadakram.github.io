@@ -9,8 +9,15 @@ body{
 #galery{
     background-color: #cfe4f5;
 }
-
+svg {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 section{
+    border: #333;
     padding-top: 7rem;
 }
 
