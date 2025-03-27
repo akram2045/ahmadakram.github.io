@@ -9,10 +9,42 @@ body {
 .hero {
   padding-top: 2rem;
   background-color: #cfe4f5;
+  height: auto;
 }
+
+/* galery */
 #galery {
   background-color: #cfe4f5;
 }
+
+.carousel-item img{
+  width: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 3%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);  /* Menjaga tombol tetap di tengah secara vertikal */
+  z-index: 10;  /* Pastikan tombol muncul di atas gambar */
+}
+
+@media (max-width: 768px) {
+
+  .carousel-item{
+    max-height: 300px;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    padding: 8px;  /* Menyesuaikan ukuran tombol pada layar kecil */
+  }
+}
+/* /galery */
+
 svg {
   display: block;
   width: 100%;

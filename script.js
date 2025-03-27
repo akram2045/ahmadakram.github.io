@@ -24,6 +24,9 @@ document.addEventListener("click", function (event) {
     toggleButton.click(); // Tutup navbar
   }
 });
+
+
+
 // document.addEventListener("DOMContentLoaded", function () {
 //   let link = document.querySelectorAll(".nav-link");
 
