@@ -154,7 +154,7 @@
                 </div>
                 <div class="carousel-inner">
 
-                  <div class="carousel-item active">
+                  <div class="carousel-item">
                     <img src="img/family1.JPG" class="d-block w-100 gallery-img"  alt="...">
                     <div class="carousel-caption d-none d-md-block">
                       <h5>HMPS KPI 2025</h5>
@@ -248,7 +248,7 @@
                     </div>
                   </div>
 
-                  <div class="carousel-item">
+                  <div class="carousel-item active">
                     <img src="img/me1.JPG" class="d-block w-100 gallery-img" alt="...">
                   </div>
                   <div class="carousel-item">
@@ -340,19 +340,32 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <form>
+            <!-- alert !fungsi -->
+            <div class="alert alert-warning alert-dismissible fade show d-none alert-warning-form" role="alert">
+              <strong>Mohon Maaf🙏</strong> Fitur ini belum berfungsi.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+             <!-- /alert !fungsi -->
+            <!-- alert succes? -->
+            <div class="alert alert-success alert-dismissible fade show d-none alert-sukses" role="alert">
+              <strong>Terimakasih!</strong> Pesan kamu berhasil kami kirim
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <!-- /alert succes? -->
+
+            <form name="submit-to-google-sheet">
               <div class="mb-3">
                 <label for="inputName3" class="col-sm-2 col-form-label"
                   >Name</label
                 >
-                <input type="text" class="form-control" id="inputName3" />
+                <input type="text" class="form-control" name="name" id="inputName3" />
               </div>
 
               <div class="mb-3">
                 <label for="inputEmail3" class="col-sm-2 col-form-label"
                   >Email</label
                 >
-                <input type="email" class="form-control" id="inputEmail3" />
+                <input type="email" class="form-control" name="email" id="inputEmail3" />
               </div>
               <div class="mb-3">
                 <label for="inputPesan3" class="col-sm-2 col-form-label"
@@ -361,10 +374,15 @@
                 <textarea
                   type="text"
                   class="form-control"
+                  name="pesan"
                   id="inputPesan3"
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" id="btnkirim" class="btn btn-primary btn-kirim">Kirim</button>
+              <button class="btn btn-primary d-none btn-loading" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+              </button>
             </form>
           </div>
         </div>
@@ -388,6 +406,45 @@
       </p>
     </footer>
     <!-- /footer -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() { 
+        const form = document.forms['submit-to-google-sheet']
+        const alertForm = document.querySelector('.alert-warning-form')
+        document.getElementById("btnkirim").addEventListener("click", function(event){
+          event.preventDefault();
+          alertForm.classList.toggle('d-none');
+          form.reset();
+        })
+      });
+    </script>
+
+    <!-- <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyv6epja9Jw3b_J3fEF_buZrVOAXv1byH2dSPRw50-F7MGkL4ms_Nwolq0miw4O100zMQ/exec'
+      const form = document.forms['submit-to-google-sheet']
+
+      const btnKirim = document.querySelector('.btn-kirim')
+      const btnLoading = document.querySelector('.btn-loading')
+      const alertSukses = document.querySelector('.alert-sukses')
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // ketika tombol di submit klik
+        // tampilkan loading
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            console.log('Success!', response)
+            alertSukses.classList.toggle('d-none')
+            form.reset();
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script> -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
