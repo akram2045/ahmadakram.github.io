@@ -24,8 +24,18 @@ document.addEventListener("click", function (event) {
     toggleButton.click(); // Tutup navbar
   }
 });
+document.addEventListener("DOMContentLoaded", function(){
 
+  const tombol = document.getElementById("tombolComent");
+  const formContact = document.getElementById("contact");
 
+  tombol.addEventListener("click", function () {
+   contact.classList.toggle("d-none");
+     tombol.innerText = contact.classList.contains("d-none")
+     ? "Mau Berkomentar?"
+     : "Sembunyikan Form"
+  });
+});
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   let link = document.querySelectorAll(".nav-link");
