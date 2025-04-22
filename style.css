@@ -3,6 +3,7 @@
 body {
   background-color: #ffffff;
   font-family: "Poppins", "Ubuntu", sans-serif ;
+  
 }
 .navbar {
   padding: 0;
@@ -13,10 +14,7 @@ body {
   background-color: #cfe4f5;
   height: auto;
 }
-/* testimoni */
-  
 
-/* /testimoni */
 
 /* galery */
 #galery {
